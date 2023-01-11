@@ -5,42 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flex Header 2</title>
+    <link rel="stylesheet" href="./style.css">
+
   </head>
   <body>
     <script>
 
+
+
+
+    </script>
+
+    <header>ROCK &nbspPAPER &nbspSCISSORS</header>
+
+    <div class = game-container>
+      <button class = 'rock'>Rock</button>
+      <button class = 'paper'>Paper</button>
+      <button class = 'Scissors'>Scissors</button>
+    </div>
+
+    <script>
       var playerScore = 0;
       var compScore = 0;
 
-      function game(){
+      butts = document.querySelectorAll('button');
+      butts.forEach(butt => { butt.addEventListener('click',getPlayer);        
+      });
 
-        for (var index = 0; index < 15; index++) {
-          selection = prompt('rock or papaer or scissors?');
-          playerSelection = selection.toLowerCase();
+      function getPlayer(e){
 
-          //input check and get score
-          if(playerSelection === 'rock' || playerSelection === 'paper' || playerSelection === 'scissors'){
-            compSelection = getComputerChoice();
-            checkwin(playerSelection, compSelection);
-            console.log('your choice is ' + playerSelection + ' and computer choice is ' + compSelection);
-            console.log('current score is: Player '+ playerScore + ' vs Computer: ' + compScore);
-          }
-          else{
-            index = index - 1;
-            console.log('please enter again');
-          }
-        }
+        console.log(e.target.className)
 
-        //check win condition
-        if(playerScore > compScore){
-          console.log('player win');
-        }
-        else if(compScore > playerScore){
-          console.log('computer win');
-        }
-        else{
-          console.log('draw');
-        }
+        compSelection = getComputerChoice();
+        checkwin(e.target.className, compSelection);
+        console.log('your choice is ' + e.target.className + ' and computer choice is ' + compSelection);
+        console.log('current score is: Player '+ playerScore + ' vs Computer: ' + compScore);
       }
 
       function getComputerChoice(){
@@ -57,7 +56,7 @@
           return result;
         }
 
-      function checkwin(playerSelection, compSelection){
+        function checkwin(playerSelection, compSelection){
         if(playerSelection === 'rock'){
           if(compSelection === 'rock'){
             return 0;
@@ -91,10 +90,23 @@
             return 0;
           }
         }
-      }     
-
-      game();
-
+        
+        //check win condition
+        if(playerScore > compScore){
+        console.log('player win');
+        }
+        else if(compScore > playerScore){
+          console.log('computer win');
+        }
+        else{
+          console.log('draw');
+        }
+      
+      }
     </script>
+
+    <footer>Copyright © 2023 JavaShrekUser</footer>
+
+
   </body>
 </html>
