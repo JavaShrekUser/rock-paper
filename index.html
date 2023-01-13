@@ -12,25 +12,37 @@
     <script>
 
 
-
-
     </script>
 
     <header>ROCK &nbspPAPER &nbspSCISSORS</header>
+    <div class = 'start-container'>
+
+      <div class="horizontal-container">
+        <img class = 'player-select' src="./qestion.png">
+        <div class="player-text">Player Choice</div>
+      </div>
+
+      <div class="horizontal-container">
+        <img class= 'comp-select' src="./qestion.png">
+        <div class="computer-text">Computer Choice</div>
+      </div>
+    </div>
 
     <div class = game-container>
-      <button class = 'rock'>Rock</button>
-      <button class = 'paper'>Paper</button>
-      <button class = 'Scissors'>Scissors</button>
+      <button class = 'rock'></button>
+      <button class = 'paper'></button>
+      <button class = 'scissors'></button>
     </div>
 
     <script>
       var playerScore = 0;
       var compScore = 0;
 
-      butts = document.querySelectorAll('button');
-      butts.forEach(butt => { butt.addEventListener('click',getPlayer);        
+      const butts = document.querySelectorAll('button');
+      butts.forEach(butt => { butt.addEventListener('click',getPlayer);
       });
+      const playerSelect = document.querySelector('.player-select');
+      const compSelect = document.querySelector('.comp-select');      
 
       function getPlayer(e){
 
@@ -40,6 +52,10 @@
         checkwin(e.target.className, compSelection);
         console.log('your choice is ' + e.target.className + ' and computer choice is ' + compSelection);
         console.log('current score is: Player '+ playerScore + ' vs Computer: ' + compScore);
+
+        playerSelect.src = `./${e.target.className}.png`
+        compSelect.src = `./${compSelection}.png`
+
       }
 
       function getComputerChoice(){
