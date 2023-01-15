@@ -15,24 +15,39 @@
     </script>
 
     <header>ROCK &nbspPAPER &nbspSCISSORS</header>
+
+    <div class="winner">Make a choice</div>
+
     <div class = 'start-container'>
 
       <div class="horizontal-container">
-        <img class = 'player-select' src="./qestion.png">
-        <div class="player-text">Player Choice</div>
+        <div class="choice">
+          <img class = 'player-select' src="./qestion.png">
+        </div>
+        <div class="choice">
+          <div class="player-text">Player Choice</div>
+        </div>
       </div>
+      
+      <div class="vs"></div>
 
       <div class="horizontal-container">
-        <img class= 'comp-select' src="./qestion.png">
-        <div class="computer-text">Computer Choice</div>
+        <div class="choice">
+          <img class= 'comp-select' src="./qestion.png">
+        </div>
+        <div class="choice">
+          <div class="computer-text">Computer Choice</div>
+        </div>
       </div>
     </div>
+
 
     <div class = game-container>
       <button class = 'rock'></button>
       <button class = 'paper'></button>
       <button class = 'scissors'></button>
     </div>
+    
 
     <script>
       var playerScore = 0;
@@ -42,8 +57,10 @@
       butts.forEach(butt => { butt.addEventListener('click',getPlayer);
       });
       const playerSelect = document.querySelector('.player-select');
-      const compSelect = document.querySelector('.comp-select');      
-
+      const compSelect = document.querySelector('.comp-select'); 
+      const vs = document.querySelector('div .vs').textContent = `${playerScore} VS ${compScore}`;
+      winner = document.querySelector('.winner');
+     
       function getPlayer(e){
 
         console.log(e.target.className)
@@ -52,6 +69,7 @@
         checkwin(e.target.className, compSelection);
         console.log('your choice is ' + e.target.className + ' and computer choice is ' + compSelection);
         console.log('current score is: Player '+ playerScore + ' vs Computer: ' + compScore);
+        const vs = document.querySelector('div .vs').textContent = `${playerScore} VS ${compScore}`;
 
         playerSelect.src = `./${e.target.className}.png`
         compSelect.src = `./${compSelection}.png`
@@ -73,36 +91,55 @@
         }
 
         function checkwin(playerSelection, compSelection){
+
         if(playerSelection === 'rock'){
           if(compSelection === 'rock'){
+            winner.textContent = 'Tie!';
+            winner.style.color = "green";
             return 0;
           }
           if(compSelection === 'paper'){
+            winner.textContent = 'Computer Win!';
+            winner.style.color = "#f98ece";
             return compScore += 1;
           }
           if(compSelection === 'scissors'){
+            winner.textContent = 'Player Win!';
+            winner.style.color = '#bce18c';
             return playerScore += 1;
           }
         }
         else if(playerSelection === 'paper'){
           if(compSelection === 'rock'){
+            winner.textContent = 'Player Win!';
+            winner.style.color = '#bce18c';
             return playerScore += 1; 
           }
           if(compSelection === 'paper'){
+            winner.textContent = 'Tie!';
+            winner.style.color = "green";
             return 0;
           }
           if(compSelection === 'scissors'){
+            winner.textContent = 'Computer Win!';
+            winner.style.color = "#f98ece";
             return compScore += 1;
           }
         }
         else{
           if(compSelection === 'rock'){
+            winner.textContent = 'Computer Win!';
+            winner.style.color = "#f98ece";
             return compScore += 1;
           }
           if(compSelection === 'paper'){
+            winner.textContent = 'Player Win!';
+            winner.style.color = '#bce18c';
             return playerScore += 1;
           }
           if(compSelection === 'scissors'){
+            winner.textContent = 'Tie!';
+            winner.style.color = "green";
             return 0;
           }
         }

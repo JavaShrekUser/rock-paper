@@ -1,3 +1,7 @@
+body{
+  background-color:;
+}
+
 button{
   width: 184px;
   height: 200px;
@@ -36,8 +40,8 @@ header{
   align-items: center;
   height: 100px;
   font-family:Jazz LET, fantasy;
-  font-size: 60px;
-  background-color: bisque;
+  font-size: 45px;
+  color: #5291e1;
 }
 
 body{
@@ -64,8 +68,8 @@ footer{
   justify-content: center;
   align-items: center;
   width: 100%;
-  gap:80px;
-  margin-top: 50px;
+  gap:150px;
+  margin-top: 70px;
 }
 
 .start-container{
@@ -74,34 +78,56 @@ footer{
   align-items: center;
   height: 300px;
   width: 100%;
-  gap:80px;
-  margin-top: 50px;
+  gap:40px;
 }
 
 .horizontal-container{
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 300px;
+  justify-content: space-between;
+  height: 230px;
   flex: 0;
 }
 
-.player-text{
-  margin: 0;
-  padding: 0;
-  margin-top: 25px;
-}
-
-.computer-text{
-  margin: 0;
-  padding-top: 240px;
-
-  position: fixed;
-
-}
-
 img{
-  height: 160;
+  height: auto;
   width: 160px;
   padding-bottom: 20px;
+  
 }
+
+.choice{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 200px;
+  width: 200px;
+  flex: 0;
+  font-family:Jazz LET, fantasy;
+  font-size: 25px;
+  color: #879de1;
+}
+
+.winner{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  height: 80px;
+  font-family:Jazz LET, fantasy;
+  margin-top: 30px;
+  color: #879de1;
+}
+
+.vs{
+  width:170px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  height: 80px;
+  font-family:Jazz LET, fantasy;
+  margin-bottom: 40px;
+}
+
